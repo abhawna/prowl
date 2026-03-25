@@ -30,9 +30,9 @@ import numpy as np
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 WATCHLIST = ["HOOD", "PLTR", "AMD", "AVGO", "MU"]
 
-EMAIL_FROM = os.getenv("EMAIL_FROM", "")
-EMAIL_TO   = os.getenv("EMAIL_TO", "")
-EMAIL_PASS = os.getenv("EMAIL_PASS", "")
+EMAIL_FROM = os.getenv("EMAIL_FROM", "").strip().replace("\xa0", "")
+EMAIL_TO   = os.getenv("EMAIL_TO", "").strip().replace("\xa0", "")
+EMAIL_PASS = os.getenv("EMAIL_PASS", "").strip().replace("\xa0", "")
 SMTP_HOST  = os.getenv("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT  = int(os.getenv("SMTP_PORT", "587"))
 
