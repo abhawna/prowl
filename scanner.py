@@ -30,9 +30,13 @@ import numpy as np
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 WATCHLIST = ["HOOD", "PLTR", "AMD", "AVGO", "MU"]
 
-EMAIL_FROM = os.getenv("EMAIL_FROM", "").strip().replace("\xa0", "")
-EMAIL_TO   = os.getenv("EMAIL_TO", "").strip().replace("\xa0", "")
-EMAIL_PASS = os.getenv("EMAIL_PASS", "").strip().replace("\xa0", "").replace(" ", "")  # Gmail App Password: strip the spaces shown in the 4x4 grouping
+def _clean_cred(name: str) -> str:
+    # Gmail shows app passwords with spaces, but SMTP needs them removed.
+    return "".join(os.getenv(name, "").split())
+
+EMAIL_FROM = _clean_cred("EMAIL_FROM")
+EMAIL_TO   = _clean_cred("EMAIL_TO")
+EMAIL_PASS = _clean_cred("EMAIL_PASS")
 SMTP_HOST  = os.getenv("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT  = int(os.getenv("SMTP_PORT", "587"))
 
