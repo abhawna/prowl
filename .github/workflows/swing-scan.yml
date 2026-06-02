@@ -24,13 +24,12 @@ name: Swing Trade Scanner
 
 on:
   schedule:
-    # 13:00 UTC = 5:00 AM PST (UTC-8) / 6:00 AM PDT (UTC-7)
-    # Adjust the hour to match your timezone:
-    #   EST (UTC-5): use 10:00 → "0 10 * * 1-5"
-    #   CST (UTC-6): use 11:00 → "0 11 * * 1-5"
-    #   MST (UTC-7): use 12:00 → "0 12 * * 1-5"
-    #   PST (UTC-8): use 13:00 → "0 13 * * 1-5"  ← current setting
-    - cron: "0 13 * * 1-5"   # Mon–Fri only, skip weekends
+    # Target: 6:35 AM Pacific, weekday mornings.
+    # GitHub cron is ALWAYS UTC and does NOT observe daylight saving, so the
+    # UTC time must be switched twice a year to keep 6:35 AM local:
+    #   PDT (summer, UTC-7): 6:35 AM = 13:35 UTC → "35 13 * * 1-5"  ← current setting
+    #   PST (winter, UTC-8): 6:35 AM = 14:35 UTC → "35 14 * * 1-5"
+    - cron: "35 13 * * 1-5"   # 6:35 AM PDT · Mon–Fri only, skip weekends
 
   # Allow manual trigger from the Actions tab
   workflow_dispatch:
