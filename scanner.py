@@ -33,6 +33,7 @@ WATCHLIST = [
     "GOOG", "INTC", "META", "MSFT", "ORCL", "AMZN",
     "CRWV", "NBIS", "AAPL", "NVDA", "TSLA", "COIN",
     "ARM", "ON", "AMAT", "MRVL", "BE",
+    "TLN", "KTOS", "CIEN", "LITE",
 ]
 
 def _clean_cred(name: str) -> str:
