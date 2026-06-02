@@ -28,7 +28,12 @@ import pandas as pd
 import numpy as np
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
-WATCHLIST = ["HOOD", "PLTR", "AMD", "AVGO", "MU"]
+WATCHLIST = [
+    "HOOD", "PLTR", "AMD", "AVGO", "MU",          # original watchlist
+    "GOOG", "INTC", "META", "MSFT", "ORCL", "AMZN",
+    "CRWV", "NBIS", "AAPL", "NVDA", "TSLA", "COIN",
+    "ARM", "ON", "AMAT", "MRVL", "BE",
+]
 
 def _clean_cred(name: str) -> str:
     # Gmail shows app passwords with spaces, but SMTP needs them removed.
